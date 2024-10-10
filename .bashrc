@@ -2,12 +2,12 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+	. /etc/bashrc
 fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -16,11 +16,11 @@ export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-    for rc in ~/.bashrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
 fi
 unset rc
 
@@ -99,17 +99,51 @@ ex()
 up() {
 	local d=""
 	local steps="$1"
-	
+
 	if [ -z "$steps" ] || [ "$steps" -le 0 ]; then
 		steps=1
 	fi
-	
+
 	for ((i = 1; i <= steps; i++)); do
 		d="../$d"
 	done
-	
+
 	if ! cd "$d"; then
 		echo "Cannot .. $steps dirs.";
 	fi
 }
 
+# Show n processes and list their memory usage, PID, user and command line.
+psmem() {
+	local count=${1:-10}
+
+	# List processes with their memory usage, PID, user and command line,
+	# sort them by memory usage in descending order and display top N
+	# processes as specified.
+	ps -eo rss,pid,user,command | sort -rn | head -n "$count" | awk '
+	BEGIN {
+		# Define human-readable memory size units.
+		hr[1024**2]="GB"; hr[1024]="MB";
+	}
+	{
+		# Convert the memory usage to a human-readable format.
+		for (x = 1024 ** 3; x >= 1024; x /= 1024) {
+			if ($1 >= x) {
+				printf ("%-6.2f %s ", $1 / x, hr[x]);
+				break;
+			}
+		}
+	}
+	{
+		# Print the process ID and user.
+		printf ("%-6s %-10s ", $2, $3);
+	}
+	{
+		# Print the command line, handling commands with spaces.
+		for (x = 4; x <= NF; x++) {
+			printf ("%s ", $x);
+		}
+		print ("\n"); # Ensure each process info is on a new line.
+	}
+	'
+}
