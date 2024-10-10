@@ -95,6 +95,7 @@ ex()
 	fi
 }
 
+# Move up by n spots in the directory hierarchy.
 up() {
 	local d=""
 	local steps="$1"
@@ -112,10 +113,3 @@ up() {
 	fi
 }
 
-# Programming related
-# .NET
-DOTNET_CLI_TELEMETRY_OPTOUT=1
-export DOTNET_CLI_TELEMETRY_OPTOUT
-
-# Go
-export GOPATH="$HOME/.go"
