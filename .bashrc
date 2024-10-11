@@ -58,13 +58,6 @@ PS1="📦 ${BOLD}${TOOLBOX} ${BOLD}${BLUE}\w${RESET} ${BOLD}${LIGHT_GREEN}\u${RE
 # User specific aliases and functions
 alias ls='ls --color=auto'
 
-# Emacs aliases
-alias emacs="emacsclient -c -a 'emacs'"
-alias doomsync="~/.emacs.d/bin/doom sync"
-alias doomdoctor="~/.emacs.d/bin/doom doctor"
-alias doomupgrade="~/.emacs.d/bin/doom upgrade"
-alias doompurge="~/.emacs.d/bin/doom purge"
-
 # Colorize grep output
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
@@ -79,17 +72,6 @@ alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 
 # Receive the key of a developer
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
-
-# yt-dlp
-alias yt-dlp-aac="yt-dlp --extract-audio --audio-format aac "
-alias yt-dlp-best="yt-dlp --extract-audio --audio-format best "
-alias yt-dlp-flac="yt-dlp --extract-audio --audio-format flac "
-alias yt-dlp-m4a="yt-dlp --extract-audio --audio-format m4a "
-alias yt-dlp-mp3="yt-dlp --extract-audio --audio-format mp3 "
-alias yt-dlp-opus="yt-dlp --extract-audio --audio-format opus "
-alias yt-dlp-vorbis="yt-dlp --extract-audio --audio-format vorbis "
-alias yt-dlp-wav="yt-dlp --extract-audio --audio-format wave "
-alias yt-dlp-video="yt-dlp -f bestvideo+bestaudio "
 
 # Bare git repo alias for dotfiles
 alias dotfiles="git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
