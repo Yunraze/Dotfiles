@@ -30,6 +30,31 @@ export TERM="xterm-256color"
 # Ignore duplicates in history
 export HISTCONTROL=ignoredups:erasedups
 
+# ANSI escape codes for Gentoo-like colors
+WHITE="\[\e[97m\]"		# White
+LIGHT_GREEN="\[\e[92m\]"	# Light Green (Username)
+LIGHT_YELLOW="\[\e[93m\]"	# Light Yellow (Prompt character)
+BLUE="\[\e[94m\]"		# Blue (Current directory)
+BOLD="\[\e[1m\]"		# Bold
+RESET="\[\e[0m\]"		# Reset color
+RED="\[\e[38;5;196m\]"		# Red (Git branch)
+
+# "TOOLBOX" in white
+TOOLBOX="${WHITE}TOOLBOX${RESET}"
+
+# Function to get the current git branch
+parse_git_branch() {
+	local branch=$(git branch --show-current 2>/dev/null)
+	
+	if [ -n "$branch" ]; then
+		echo " (${branch})" 
+	fi
+}
+
+# Set the PS1 prompt
+PS1="📦 ${BOLD}${TOOLBOX} ${BOLD}${BLUE}\w${RESET} ${BOLD}${LIGHT_GREEN}\u${RESET}${BOLD}${RED}\$(parse_git_branch)${RESET}${BOLD}${WHITE} \$${RESET} "
+
+
 # User specific aliases and functions
 alias ls='ls --color=auto'
 
