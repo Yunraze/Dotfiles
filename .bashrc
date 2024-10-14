@@ -40,19 +40,19 @@ RESET="\[\e[0m\]"		# Reset color
 RED="\[\e[38;5;196m\]"		# Red (Git branch)
 
 # "TOOLBOX" in white
-TOOLBOX="${WHITE}TOOLBOX${RESET}"
+TOOLBOX="${WHITE}T460s${RESET}"
 
 # Function to get the current git branch
 parse_git_branch() {
 	local branch=$(git branch --show-current 2>/dev/null)
-	
+
 	if [ -n "$branch" ]; then
 		echo " (${branch})" 
 	fi
 }
 
 # Set the PS1 prompt
-PS1="📦 ${BOLD}${TOOLBOX} ${BOLD}${BLUE}\w${RESET} ${BOLD}${LIGHT_GREEN}\u${RESET}${BOLD}${RED}\$(parse_git_branch)${RESET}${BOLD}${WHITE} \$${RESET} "
+PS1="💻 ${BOLD}${TOOLBOX} ${BOLD}${BLUE}\w${RESET} ${BOLD}${LIGHT_GREEN}\u${RESET}${BOLD}${RED}\$(parse_git_branch)${RESET}${BOLD}${WHITE} \$${RESET} "
 
 
 # User specific aliases and functions
