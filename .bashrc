@@ -81,6 +81,10 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 # Bare git repo alias for dotfiles
 alias dotfiles="git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
 
+# Media commands
+alias mpv="flatpak run io.mpv.Mpv"
+alias yt-dlp="flatpak run --command=yt-dlp io.mpv.Mpv"
+
 # Move up by n spots in the directory hierarchy.
 up() {
 	local d=""
