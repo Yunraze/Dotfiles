@@ -1,0 +1,135 @@
+theme = "adwaita-dark"
+
+[editor]
+scrolloff = 5
+mouse = true
+middle-click-paste = true
+scroll-lines = 3
+shell = ["bash", "-c"]
+line-number = "relative"
+cursorline = false
+cursorcolumn = false
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+auto-completion = true
+auto-format = true
+idle-timeout = 250
+completion-timeout = 250
+preview-completion-insert = true
+completion-trigger-len = 2
+completion-replace = false
+auto-info = true
+true-color = false
+undercurl = false
+rulers = [80, 120]
+bufferline = "never"
+color-modes = true
+text-width = 80
+#workspace-lsp-roots = []
+default-line-ending = "native"
+insert-final-newline = true
+popup-border = "all"
+indent-heuristic = "hybrid"
+jump-label-alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "read-only-indicator",
+  "file-modification-indicator",
+  "position",
+]
+center = [
+  "file-base-name",
+]
+right = [
+  "diagnostics",
+  "selections",
+  "primary-selection-length",
+  "register",
+  "position-percentage",
+  "file-encoding",
+  "spacer",
+  "version-control"
+]
+separator = "|"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable = true
+display-messages = true
+auto-signature-help = true
+display-inlay-hints = false
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "block"
+select = "hidden"
+
+[editor.file-picker]
+hidden = false
+follow-symlinks = true
+deduplicate-links = true
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true
+max-depth = 5
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 3000
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+
+[editor.indent-guides]
+render = true
+character = "▏"
+#character = "⸽"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # Increase to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = "¬"
+
+[keys.select]
+A-S-u = "switch_to_uppercase"
+A-S-l = "switch_to_lowercase"
+
+[keys.normal]
+A-S-u = "switch_to_uppercase"
+A-S-l = "switch_to_lowercase"
