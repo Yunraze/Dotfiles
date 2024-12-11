@@ -1,4 +1,4 @@
-theme = "adwaita-dark"
+theme = "vim_dark_high_contrast"
 
 [editor]
 scrolloff = 5
