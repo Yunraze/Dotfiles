@@ -11,8 +11,8 @@ if [ -f "$HOME/.profile" ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.bin" ]]; then
+	PATH="$HOME/.local/bin:$HOME/bin:$HOME/.bin:$PATH"
 fi
 export PATH
 
