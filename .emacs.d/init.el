@@ -56,6 +56,7 @@ The DWIM behaviour of this command is as follows:
 
 (define-key global-map (kbd "C-g") #'prot/keyboard-quit-dwim)
 
+
 ;;; TWEAK THE LOOKS OF EMACS
 
 ;; Those three belong in the early-init.el, but I am putting them here
@@ -67,7 +68,7 @@ The DWIM behaviour of this command is as follows:
 (tool-bar-mode -1)
 
 ;;; Use the preferred fonts
-(let ((mono-spaced-font "IosevkaTerm Nerd Font")
+(let ((mono-spaced-font "SauceCodePro Nerd Font")
       (proportionately-spaced-font "Inter"))
   (set-face-attribute 'default nil :family mono-spaced-font :height 200)
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
