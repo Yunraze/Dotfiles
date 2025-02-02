@@ -57,7 +57,7 @@ parse_git_branch() {
 }
 
 # Set the PS1 prompt
-PS1="🖥️  ${BOLD}${TOOLBOX} ${BOLD}${BLUE}\w${RESET} ${BOLD}${LIGHT_GREEN}\u${RESET}${BOLD}${RED}\$(parse_git_branch)${RESET}${BOLD}${WHITE} \$${RESET} "
+#PS1="🖥️  ${BOLD}${TOOLBOX} ${BOLD}${BLUE}\w${RESET} ${BOLD}${LIGHT_GREEN}\u${RESET}${BOLD}${RED}\$(parse_git_branch)${RESET}${BOLD}${WHITE} \$${RESET} "
 
 
 # User specific aliases and functions
@@ -83,7 +83,11 @@ alias dotfiles="git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
 
 # Media commands
 alias mpv="flatpak run io.mpv.Mpv"
-alias yt-dlp="flatpak run --command=yt-dlp io.mpv.Mpv"
+
+alias yt-dlp='flatpak run --command=yt-dlp io.mpv.Mpv'
+alias yt-dlp-audioonly='yt-dlp -f bestaudio -x'
+alias yt-dlp-mp4='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
+alias yt-dlp-mkv='yt-dlp -f "bestvideo[ext=mkv]+bestaudio[ext=mka]/best[ext=mkv]/best"'
 
 # Move up by n spots in the directory hierarchy.
 up() {
